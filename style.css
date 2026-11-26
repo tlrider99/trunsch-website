@@ -80,11 +80,3 @@ dialog p{margin:0;font-size:16px}
 .illu-gross{margin:0 0 32px}
 .illu-flaeche{aspect-ratio:16/9;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .illu-flaeche svg,.illu-flaeche img{display:block;width:100%;height:auto}
-.ablauf{margin-top:64px}
-.schritt{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:32px;align-items:center}
-.schritt + .schritt{margin-top:48px}
-.schritt:nth-child(odd){grid-template-columns:2fr minmax(220px,1fr)}
-.schritt:nth-child(odd) .schritt-text{order:2}
-.schritt h3{margin:0 0 8px;font-weight:650;font-size:20px}
-.schritt p{margin:0;color:var(--muted)}
-@media(max-width:760px){.schritt,.schritt:nth-child(odd){grid-template-columns:1fr;gap:16px}.schritt:nth-child(odd) .schritt-text{order:0}.ablauf{margin-top:48px}}
