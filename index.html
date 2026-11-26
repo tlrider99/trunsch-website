@@ -32,6 +32,7 @@
 <div class="eyebrow">Krankenhaus und Radiologie</div>
 <div class="titel"><img src="flow2pacs.png" alt="Produktzeichen Flow2PACS" width="64" height="64"><h2 id="flow2pacs-titel"><span>Flow</span><span class="zwei">2</span><span>PACS</span></h2></div>
 <p class="intro">Flow2PACS übernimmt externe Bilder aus Patientenportalen, auch nach DLX-Standard (DIN/TS 19455), von Patienten-CDs und aus einem überwachten Ordner in das Bildarchiv des Hauses. Der Server läuft im Netz der Klinik, gleicht jede Studie mit den Patienten des Hauses ab und sendet sie per DICOM an das PACS.</p>
+<figure class="illu illu-gross"><div class="illu-flaeche" data-illu="illustrationen/flow2pacs-film.svg" role="img" aria-label="Animierte Zeichnung in fünf Szenen: QR-Code scannen, vier Importwege durch dieselbe Prüfung, Patientenabgleich, Weg einer Studie bis ins PACS, Portal einmal anlernen."><noscript><img src="illustrationen/flow2pacs-film.svg" alt="Animierte Zeichnung: So arbeitet Flow2PACS" width="1600" height="900"></noscript></div></figure>
 <div class="karten">
 <div class="karte"><h3>Ein Klick statt Abtippen</h3><p>QR-Code aus dem Arztbrief scannen. Die Browser-Erweiterung bedient das Portal und übernimmt den Download.</p></div>
 <div class="karte"><h3>Geprüfte Zuordnung</h3><p>Jede Studie wird einem Patienten des Hauses zugeordnet, bevor sie ins PACS geht. Nur Eindeutiges wird ohne Suche zugeordnet.</p></div>
@@ -108,6 +109,6 @@ document.querySelectorAll('[data-impressum]').forEach(function (k) {
 });
 if (location.hash === '#impressum') { document.getElementById('impressum').showModal(); }
 </script>
-
+<script src="illustrationen/illustrationen.js" defer></script>
 </body>
 </html>
