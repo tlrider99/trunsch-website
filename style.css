@@ -76,7 +76,9 @@ dialog p{margin:0;font-size:16px}
 
 /* Animierte Illustrationen (Handzeichnungen Flow2PACS). Schrift nur für die Zeichnungen; wird erst geladen, wenn eine Zeichnung Text zeigt. */
 @font-face{font-family:"Caveat";src:url(illustrationen/caveat.woff2) format("woff2");font-weight:400 700;font-display:swap}
-.illu{margin:0}
+.illu{margin:0;position:relative}
 .illu-gross{margin:0 0 32px}
 .illu-flaeche{aspect-ratio:16/9;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .illu-flaeche svg,.illu-flaeche img{display:block;width:100%;height:auto}
+.illu-knopf{position:absolute;right:12px;bottom:12px;min-height:44px;padding:0 16px;font:600 14px "Archivo","Segoe UI",system-ui,sans-serif;color:var(--ink);background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:6px;cursor:pointer}
+.illu-knopf:hover{color:var(--petrol)}
