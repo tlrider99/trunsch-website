@@ -42,6 +42,46 @@
 <p class="technik">DICOM C-STORE / C-FIND · HL7 v2 ADT &amp; ORM · DIN/TS 19455 · Chrome/Edge-Erweiterung, Windows-App</p>
 </section>
 
+<section id="ablauf" class="wrap info" aria-labelledby="ablauf-titel">
+<div class="eyebrow">So läuft ein Import</div>
+<h2 id="ablauf-titel">Alle Quellen, ein geprüfter Weg ins PACS</h2>
+<p class="info-intro">Alle Importwege laufen in dieselbe Verarbeitung. Das KIS oder RIS liefert Stammdaten und Aufträge, das PACS wird per C-FIND befragt, die Bilder gehen per C-STORE dorthin.</p>
+<div class="spalten">
+<div class="block"><h3>Patientenportale</h3><ul><li>Portale beliebiger Anbieter im Web</li><li>QR-Code aus dem Arztbrief scannen, die Browser-Erweiterung bedient das Portal</li><li>Der Download wird abgefangen, im Normalfall ohne Datei im Download-Ordner</li><li>Jedes Portal wird einmal angelernt, danach läuft der Import von selbst</li></ul></div>
+<div class="block"><h3>Patienten-CD und DLX</h3><ul><li>CDs und DVDs, die Patienten mitbringen</li><li>DICOM-Austausch nach DIN/TS 19455 (DLX)</li></ul></div>
+<div class="block"><h3>Überwachter Ordner</h3><ul><li>ZIP-Dateien, DICOM-Dateien und kopierte CD-Ordner</li><li>Was dort abgelegt wird, geht automatisch in die Prüfung</li></ul></div>
+</div>
+<ol class="schritte"><li><b>Prüfung</b><span>Die Studie wird eingelesen und geprüft.</span></li><li><b>Abgleich</b><span>Zuordnung zu einem Patienten des Hauses über HL7 und PACS.</span></li><li><b>Bestätigung</b><span>Unklare Fälle warten sichtbar auf das Personal.</span></li><li><b>Versand</b><span>Per DICOM an das PACS, auf Wunsch mit Auftrag an RIS/KIS.</span></li></ol>
+</section>
+<section id="abgleich" class="wrap info" aria-labelledby="abgleich-titel">
+<div class="eyebrow">Patientenabgleich</div>
+<h2 id="abgleich-titel">Schutz vor Verwechslung</h2>
+<div class="spalten">
+<div class="block"><h3>HL7-ADT-Abgleich: das Kurzzeitgedächtnis</h3><ul><li>Abgleich gegen die laufend gemeldeten Aufnahmen aus KIS oder RIS</li><li>Kennt auch künftige Aufenthalte, ideal rund um einen Aufenthalt</li></ul></div>
+<div class="block"><h3>PACS-Abgleich per C-FIND: das Langzeitgedächtnis</h3><ul><li>Abfrage des eigenen PACS</li><li>Kennt jeden, der je untersucht wurde, und findet Patienten vor ihrer Aufnahme über Voruntersuchungen</li></ul></div>
+<div class="block"><h3>Nur Eindeutiges geht ohne Suche</h3><ul><li>Mehrere Personen mit gleichen Personendaten, abweichende Patienten-IDs und ein sicheres Doppel im PACS stoppen die Automatik</li><li>Für alles Unklare: HL7-Suche, PACS-Suche mit Platzhaltern und Kandidatenauswahl</li><li>Der Versand ist werksseitig manuell, automatische Bestätigung ist einstellbar</li></ul></div>
+</div>
+</section>
+<section id="rueckweg" class="wrap info" aria-labelledby="rueckweg-titel">
+<div class="eyebrow">Anbindung</div>
+<h2 id="rueckweg-titel">Rückweg ins RIS/KIS und Portalpflege</h2>
+<div class="spalten">
+<div class="block"><h3>Auftrag an RIS/KIS</h3><ul><li>Je Import ein Auftrag (HL7 ORM^O01) im RIS oder KIS</li><li>Accession Number aus Präfix und laufender Nummer</li><li>Frei belegbare Felder, Wiederholung bei Störung</li><li>HL7-Mitschnitt optional</li></ul></div>
+<div class="block"><h3>Portale anlernen und prüfen</h3><ul><li>Anlernen in der Seitenleiste der Erweiterung</li><li>Probelauf je Schritt mit grün oder rot</li><li>Laufstatistik und gelernte Wartezeiten</li><li>Auswahl und Download-Klick bleiben beim Personal</li></ul></div>
+<div class="block"><h3>Zweites PACS</h3><ul><li>Ein zweites Ziel für den Fall einer Störung des Standard-PACS</li></ul></div>
+</div>
+</section>
+<section id="betrieb" class="wrap info" aria-labelledby="betrieb-titel">
+<div class="eyebrow">Sicherheit und Betrieb</div>
+<h2 id="betrieb-titel">Im eigenen Netz, lückenlos nachweisbar</h2>
+<div class="spalten">
+<div class="block"><h3>Verschlüsselt</h3><ul><li>HTTPS bis zum Server, TLS optional bis ins PACS</li><li>Server-Zugangsdaten und Backups verschlüsselt</li><li>Portal-Passwörter werden nie gespeichert</li></ul></div>
+<div class="block"><h3>Audit-Protokoll</h3><ul><li>Jede Zuordnung, Suche, Sendung und Löschung wird protokolliert</li><li>In der Oberfläche nicht änderbar, werksseitig zwei Jahre aufbewahrt</li><li>HL7-Nachrichten als Rohtext einsehbar, Löschkonzept nach DSGVO</li></ul></div>
+<div class="block"><h3>On-Premises</h3><ul><li>Server im Kliniknetz (Windows/IIS, PostgreSQL), keine Cloud-Pflicht</li><li>Lizenz je Klinik</li></ul></div>
+<div class="block"><h3>Zentrale Verteilung</h3><ul><li>Erweiterung für Chrome und Edge per GPO oder Intune, alternativ eine Windows-App</li><li>Angelernte Portale lassen sich teilen (Profile-Hub)</li></ul></div>
+</div>
+</section>
+
 <section id="weitere" class="wrap weitere" aria-labelledby="weitere-titel">
 <div class="eyebrow" id="weitere-titel">Weitere Produkte von Trunsch Health IT</div>
 <div class="weitere-raster">

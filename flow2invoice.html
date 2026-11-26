@@ -41,6 +41,36 @@
 <p class="technik">Server auf einem Mac im Büro · tägliche Datensicherung</p>
 </section>
 
+<section id="belege" class="wrap info" aria-labelledby="belege-titel">
+<div class="eyebrow">Vorgänge</div>
+<h2 id="belege-titel">Die ganze Belegkette in einem Programm</h2>
+<p class="info-intro">Angebot, Auftragsbestätigung, Lieferschein, Rechnung, Stornierung, Gutschrift und Reparaturauftrag. Jeder Schritt ist überspringbar, „Überführen in …“ kopiert die Positionen in den nächsten Beleg.</p>
+<div class="spalten">
+<div class="block"><h3>Verbuchen nach GoBD</h3><ul><li>Verbuchen vergibt die Belegnummer lückenlos und sperrt den Vorgang</li><li>Gebuchte Rechnungen sind unveränderlich, korrigiert wird per Stornierung oder Gutschrift</li><li>PDF (und bei XRechnung die XML) wird beim Verbuchen einmal erzeugt und mit SHA-256 archiviert</li></ul></div>
+<div class="block"><h3>Lieferscheine abrechnen</h3><ul><li>Mehrere Lieferscheine ergeben eine Sammelrechnung</li><li>Liste „Nicht abgerechnet“ zeigt alle gebuchten Lieferscheine ohne Rechnung, ältere als 30 Tage markiert</li></ul></div>
+<div class="block"><h3>Preise und Skonto</h3><ul><li>Preisgruppen mit Mengenstaffeln</li><li>Sonderpreise je Kunde und Artikel</li><li>Zwei Skontostufen je Kunde, auf der Rechnung mit Datum und Zahlbetrag</li></ul></div>
+</div>
+</section>
+<section id="e-rechnung" class="wrap info" aria-labelledby="e-rechnung-titel">
+<div class="eyebrow">E-Rechnung und Steuer</div>
+<h2 id="e-rechnung-titel">Rechnungen, die Buchhaltungsprogramme lesen können</h2>
+<div class="spalten">
+<div class="block"><h3>Ausgangsrechnungen</h3><ul><li>ZUGFeRD 2.3, Profil EN 16931: PDF/A-3 mit eingebetteter XML</li><li>Je Kunde alternativ XRechnung</li><li>Geprüft mit dem Mustang-Validator</li></ul></div>
+<div class="block"><h3>Steuerfälle</h3><ul><li>Inland mit 19 oder 7 Prozent je Artikel</li><li>Innergemeinschaftliche Lieferung in die EU mit Prüfung der USt-IdNr.</li><li>Ausfuhrlieferung in Drittländer wie die Schweiz</li></ul></div>
+<div class="block"><h3>Eingangsrechnungen</h3><ul><li>E-Rechnungen von Lieferanten als XRechnung oder ZUGFeRD einlesen</li><li>Lesbar anzeigen und drucken</li><li>Original unverändert mit Prüfsumme aufbewahren</li></ul></div>
+</div>
+</section>
+<section id="umstieg" class="wrap info" aria-labelledby="umstieg-titel">
+<div class="eyebrow">Umstieg und Betrieb</div>
+<h2 id="umstieg-titel">Von Sage 50 ohne Schulung umsteigen</h2>
+<div class="spalten">
+<div class="block"><h3>Übernahme aus Sage 50</h3><ul><li>Kunden, Artikel, Preise, Mengenstaffeln und Sonderpreise</li><li>Alte Vorgänge als Altbelege zum Ansehen und Drucken</li><li>Belegnummern laufen ab der letzten Sage-Nummer weiter</li></ul></div>
+<div class="block"><h3>Bedienung wie gewohnt</h3><ul><li>Begriffe und Tastatursteuerung wie in Sage 50</li><li>Direkthilfe an jeder Funktion: Tooltip, F1 und Hilfemodus</li></ul></div>
+<div class="block"><h3>DATEV und E-Mail</h3><ul><li>DATEV-Buchungsstapel für Monat, Quartal, Halbjahr oder frei gewählten Zeitraum</li><li>Mailen über das eigene Mailprogramm oder direkt per SMTP</li></ul></div>
+<div class="block"><h3>Im eigenen Büro</h3><ul><li>Ein Mac im Büro ist der Server, alle Plätze arbeiten im Browser</li><li>Erreichbar nur im lokalen Netz, kein Zugriff aus dem Internet</li><li>Tägliche Datensicherung</li></ul></div>
+</div>
+</section>
+
 <section class="wrap weitere" aria-labelledby="andere-titel">
 <div class="eyebrow" id="andere-titel">Weitere Produkte von Trunsch Health IT</div>
 <div class="weitere-raster">
