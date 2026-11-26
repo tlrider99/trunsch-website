@@ -42,6 +42,32 @@
 <p class="technik">DICOM C-FIND / C-MOVE · Windows-Programm</p>
 </section>
 
+<section id="ablauf" class="wrap info" aria-labelledby="ablauf-titel">
+<div class="eyebrow">So läuft ein Export</div>
+<h2 id="ablauf-titel">Von der Patientenliste zum Forschungsdatensatz</h2>
+<p class="info-intro">Die Software läuft vollständig im Kliniknetz auf einem Windows-Server. Sie baut keine Verbindung ins Internet auf und überträgt keine Daten an Dritte, auch nicht an den Hersteller.</p>
+<ol class="schritte"><li><b>Auswahl</b><span>Eine berechtigte Person lädt eine Liste mit Patienten-IDs (CSV). Alternativ sendet das PACS einzelne Studien an Flow2Research.</span></li><li><b>Abruf</b><span>Studien per C-FIND suchen, Serien der gewählten Modalität per C-MOVE anfordern. Angenommen werden nur freigegebene Absender (AE-Titel).</span></li><li><b>Pseudonymisierung</b><span>Jedes Bild wird im Arbeitsspeicher pseudonymisiert. Originale werden nicht auf die Festplatte geschrieben.</span></li><li><b>Prüfung</b><span>Jedes pseudonymisierte Bild wird nach verbliebenen Identifikatoren durchsucht.</span></li><li><b>Ablage</b><span>Unauffällige Bilder gehen auf den Forschungsspeicher, mit SHA-256-Prüfsumme je Datei.</span></li></ol>
+</section>
+<section id="pseudonymisierung" class="wrap info" aria-labelledby="pseudonymisierung-titel">
+<div class="eyebrow">Pseudonymisierung im Detail</div>
+<h2 id="pseudonymisierung-titel">Nach DICOM PS3.15, nachvollziehbar dokumentiert</h2>
+<p class="info-intro">Umgesetzt ist das Basic Application Level Confidentiality Profile aus DICOM PS3.15 Anhang E. Die Tabelle mit 620 Attributen wird maschinenlesbar aus dem Standard übernommen.</p>
+<div class="spalten">
+<div class="block"><h3>Pseudonym</h3><ul><li>Jeder Patient erhält je Projekt ein Pseudonym, z. B. VS-00001</li><li>Fortlaufend vergeben, ohne Information aus der Original-ID</li><li>Gleich über alle Untersuchungen und spätere Nachlieferungen; Projekte sind untereinander nicht verknüpfbar</li></ul></div>
+<div class="block"><h3>Datumsangaben</h3><ul><li>Zufälliger Versatz je Patient, standardmäßig 1 bis 10 Jahre in die Vergangenheit</li><li>Abstände zwischen Untersuchungen bleiben tagesgenau erhalten</li><li>Das Geburtsdatum wird entfernt</li></ul></div>
+<div class="block"><h3>UIDs</h3><ul><li>Alle UIDs werden per HMAC-SHA256 mit einem geheimen Projektschlüssel ersetzt</li><li>Bezüge zwischen Bildern bleiben gültig, ohne Schlüssel ist die Abbildung nicht umkehrbar</li></ul></div>
+<div class="block"><h3>Freitexte und Pixel</h3><ul><li>Private Herstellerattribute, Overlays und nicht normierte Attribute werden entfernt</li><li>Beschreibungen wie Series Description bleiben nur, wenn sie keine Angaben des Patienten und kein Datum enthalten</li><li>Pixeldaten bleiben byteweise unverändert</li></ul></div>
+</div>
+</section>
+<section id="schutz" class="wrap info" aria-labelledby="schutz-titel">
+<div class="eyebrow">Schutz vor Lecks</div>
+<h2 id="schutz-titel">Was nicht sicher ist, verlässt das Haus nicht</h2>
+<div class="spalten">
+<div class="block"><h3>Ausgeschlossene Objekte</h3><ul><li>Secondary Capture, eingebettete PDF- und CDA-Dokumente, Structured Reports und Presentation States werden nicht exportiert, nur gezählt</li><li>Bilder mit dem Kennzeichen „Burned In Annotation“ werden nicht exportiert</li></ul></div>
+<div class="block"><h3>Leck-Prüfung und Quarantäne</h3><ul><li>Name, IDs, Accession Number und Geburtsdatum werden vorher gesammelt und nachher in allen Textfeldern gesucht</li><li>Bei einem Treffer geht das Bild in eine lokale Quarantäne statt auf den Forschungsspeicher</li></ul></div>
+<div class="block"><h3>Zuordnung und Re-Identifikation</h3><ul><li>Pseudonymisiert, nicht anonymisiert (Art. 4 Nr. 5 DSGVO): die Zuordnung liegt lokal in einer Zuordnungsdatenbank und bleibt der Klinik vorbehalten</li><li>Jedes Nachschlagen verlangt einen Grund und wird mit Benutzer und Zeitpunkt protokolliert</li></ul></div>
+</div>
+</section>
 <section class="wrap weitere" aria-labelledby="andere-titel">
 <div class="eyebrow" id="andere-titel">Weitere Produkte von Trunsch Health IT</div>
 <div class="weitere-raster">
