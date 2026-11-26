@@ -32,10 +32,18 @@
 <div class="eyebrow">Krankenhaus und Radiologie</div>
 <div class="titel"><img src="flow2pacs.png" alt="Produktzeichen Flow2PACS" width="64" height="64"><h2 id="flow2pacs-titel"><span>Flow</span><span class="zwei">2</span><span>PACS</span></h2></div>
 <p class="intro">Flow2PACS übernimmt externe Bilder aus Patientenportalen, auch nach DLX-Standard (DIN/TS 19455), von Patienten-CDs und aus einem überwachten Ordner in das Bildarchiv des Hauses. Der Server läuft im Netz der Klinik, gleicht jede Studie mit den Patienten des Hauses ab und sendet sie per DICOM an das PACS.</p>
+<figure class="illu illu-gross"><div class="illu-flaeche" data-illu="illustrationen/01-systembild.svg" role="img" aria-label="Systembild: Bilder aus Portal, Patienten-CD, DLX-Link und überwachtem Ordner laufen in Flow2PACS, werden gegen KIS und RIS geprüft und ins PACS gesendet."><noscript><img src="illustrationen/01-systembild.svg" alt="Systembild: Bilder aus Portal, Patienten-CD, DLX-Link und überwachtem Ordner laufen in Flow2PACS, werden gegen KIS und RIS geprüft und ins PACS gesendet." width="1600" height="900"></noscript></div></figure>
 <div class="karten">
 <div class="karte"><h3>Ein Klick statt Abtippen</h3><p>QR-Code aus dem Arztbrief scannen. Die Browser-Erweiterung bedient das Portal und übernimmt den Download.</p></div>
 <div class="karte"><h3>Geprüfte Zuordnung</h3><p>Jede Studie wird einem Patienten des Hauses zugeordnet, bevor sie ins PACS geht. Nur Eindeutiges wird ohne Suche zugeordnet.</p></div>
 <div class="karte"><h3>Im eigenen Netz</h3><p>Server im Kliniknetz, keine Cloud-Pflicht. Jeder Schritt im Audit-Protokoll, Löschkonzept nach DSGVO.</p></div>
+</div>
+<div class="ablauf" aria-labelledby="ablauf-titel">
+<div class="eyebrow" id="ablauf-titel">So läuft es ab</div>
+<div class="schritt"><div class="schritt-text"><h3>Ein Klick statt Abtippen</h3><p>QR-Code aus dem Arztbrief scannen. Das Portal öffnet sich, Flow2PACS fängt den Download ab.</p></div><figure class="illu"><div class="illu-flaeche" data-illu="illustrationen/03-qr-scan.svg" role="img" aria-label="Zeichnung: QR-Code aus dem Arztbrief wird gescannt, das Portal öffnet sich und Flow2PACS übernimmt den Download."><noscript><img src="illustrationen/03-qr-scan.svg" alt="Zeichnung: QR-Code aus dem Arztbrief wird gescannt, das Portal öffnet sich und Flow2PACS übernimmt den Download." width="1600" height="900"></noscript></div></figure></div>
+<div class="schritt"><div class="schritt-text"><h3>Einmal anlernen</h3><p>Ein Portal wird einmal angelernt. Danach läuft jeder weitere Import automatisch.</p></div><figure class="illu"><div class="illu-flaeche" data-illu="illustrationen/05-portal-anlernen.svg" role="img" aria-label="Zeichnung: Ein Portal wird einmal angelernt, danach läuft der Import automatisch."><noscript><img src="illustrationen/05-portal-anlernen.svg" alt="Zeichnung: Ein Portal wird einmal angelernt, danach läuft der Import automatisch." width="1600" height="900"></noscript></div></figure></div>
+<div class="schritt"><div class="schritt-text"><h3>Geprüfte Zuordnung</h3><p>Jede Studie wird einem Patienten des Hauses zugeordnet. Die fremde ID wird nur bei genau einem Treffer automatisch durch die eigene ersetzt.</p></div><figure class="illu"><div class="illu-flaeche" data-illu="illustrationen/04-patientenabgleich.svg" role="img" aria-label="Zeichnung: Patientenabgleich über HL7-ADT und PACS. Die fremde ID wird nur bei genau einem Treffer durch die eigene ersetzt."><noscript><img src="illustrationen/04-patientenabgleich.svg" alt="Zeichnung: Patientenabgleich über HL7-ADT und PACS. Die fremde ID wird nur bei genau einem Treffer durch die eigene ersetzt." width="1600" height="900"></noscript></div></figure></div>
+<div class="schritt"><div class="schritt-text"><h3>Der Weg einer Studie</h3><p>Import, Prüfung, Abgleich, Bestätigung, Versand. Erst zuordnen, dann senden.</p></div><figure class="illu"><div class="illu-flaeche" data-illu="illustrationen/02-weg-einer-studie.svg" role="img" aria-label="Zeichnung: Weg einer Studie in fünf Schritten: Import, Prüfung, Abgleich, Bestätigung, Versand ins PACS."><noscript><img src="illustrationen/02-weg-einer-studie.svg" alt="Zeichnung: Weg einer Studie in fünf Schritten: Import, Prüfung, Abgleich, Bestätigung, Versand ins PACS." width="1600" height="900"></noscript></div></figure></div>
 </div>
 <p class="technik">DICOM C-STORE / C-FIND · HL7 v2 ADT &amp; ORM · DIN/TS 19455 · Chrome/Edge-Erweiterung, Windows-App</p>
 </section>
@@ -108,6 +116,6 @@ document.querySelectorAll('[data-impressum]').forEach(function (k) {
 });
 if (location.hash === '#impressum') { document.getElementById('impressum').showModal(); }
 </script>
-
+<script src="illustrationen/illustrationen.js" defer></script>
 </body>
 </html>
