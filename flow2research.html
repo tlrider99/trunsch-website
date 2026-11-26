@@ -33,6 +33,7 @@
 <div class="eyebrow">Klinische Forschung</div>
 <div class="titel"><h2 id="flow2research-titel"><span>Flow</span><span class="zwei">2</span><span>Research</span></h2></div>
 <p class="intro">Aus einer Patientenliste wird ein fertiger Datensatz für die Studie: Flow2Research fragt die Studien im PACS ab, holt die Bilder, ersetzt die identifizierenden Angaben durch ein Pseudonym und legt das Ergebnis auf einer Netzfreigabe ab.</p>
+<figure class="illu illu-gross"><div class="illu-flaeche" data-illu="illustrationen/flow2research-film.svg" role="img" aria-label="Animierte Zeichnung in fünf Szenen: Patientenliste laden, Bilder per DICOM aus dem PACS holen ohne das Kliniknetz zu verlassen, Pseudonymisierung nach DICOM PS3.15, gleicher Datumsversatz je Patient, Leck-Prüfung mit Forschungsspeicher und Quarantäne."><noscript><img src="illustrationen/flow2research-film.svg" alt="Animierte Zeichnung: So arbeitet Flow2Research" width="1600" height="900"></noscript></div></figure>
 <div class="karten">
 <div class="karte"><h3>Pseudonymisierung nach Standard</h3><p>Nach DICOM PS3.15 Anhang E. Die Pixeldaten bleiben unverändert.</p></div>
 <div class="karte"><h3>Ein Pseudonym je Patient</h3><p>Ein Pseudonym je Patient und Projekt. Zeitabstände zwischen Untersuchungen bleiben exakt erhalten.</p></div>
@@ -99,5 +100,6 @@ document.querySelectorAll('[data-impressum]').forEach(function (k) {
 });
 if (location.hash === '#impressum') { document.getElementById('impressum').showModal(); }
 </script>
+<script src="illustrationen/illustrationen.js" defer></script>
 </body>
 </html>
