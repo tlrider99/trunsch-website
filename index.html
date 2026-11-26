@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trunsch Health IT – Flow2PACS, Flow2Research, Flow2Invoice</title>
-<meta name="description" content="Trunsch Health IT entwickelt Flow2PACS (Fremdbilder ins PACS), Flow2Research (pseudonymisierter DICOM-Export für Studien) und Flow2Invoice (Angebote, Rechnungen und E-Rechnung für kleine Betriebe).">
+<title>Flow2PACS – Fremdbilder sicher ins PACS – Trunsch Health IT</title>
+<meta name="description" content="Flow2PACS von Trunsch Health IT übernimmt externe Bilder aus Patientenportalen (auch DLX), von Patienten-CDs und aus Ordnern ins PACS der Klinik, mit geprüfter Patientenzuordnung.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -13,8 +13,9 @@
 <div class="wrap leiste">
 <a class="marke" href="index.html"><svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#0E7C86"/><rect x="12" y="16" width="28" height="10" fill="#E4EDF1"/><path d="M38 10 L54 21 L38 32 Z" fill="#E4EDF1"/><rect x="20" y="26" width="10" height="24" fill="#0F171B"/></svg><span><b>Trunsch</b><span>Health IT</span></span></a>
 <nav class="nav" aria-label="Hauptnavigation">
-<a href="#flow2pacs">Flow2PACS</a>
-<a href="#weitere">Weitere Produkte</a>
+<a href="index.html" aria-current="page">Flow2PACS</a>
+<a href="flow2research.html">Flow2Research</a>
+<a href="flow2invoice.html">Flow2Invoice</a>
 <a href="#kontakt">Kontakt</a>
 <button type="button" class="linkknopf" data-impressum>Impressum</button>
 <a href="datenschutz.html">Datenschutz</a>
@@ -42,30 +43,20 @@
 </section>
 
 <section id="weitere" class="wrap weitere" aria-labelledby="weitere-titel">
-<div class="eyebrow" id="weitere-titel">Weitere Produkte</div>
+<div class="eyebrow" id="weitere-titel">Weitere Produkte von Trunsch Health IT</div>
 <div class="weitere-raster">
-<article id="flow2research" class="weiteres" aria-labelledby="flow2research-titel">
+<a class="weiteres teaser" href="flow2research.html">
 <div class="eyebrow">Klinische Forschung</div>
-<h3 id="flow2research-titel"><span>Flow</span><span class="zwei">2</span><span>Research</span></h3>
-<p>Holt die Bilddaten einer Studie anhand einer Patientenliste aus dem PACS, pseudonymisiert sie und legt sie auf einer Netzfreigabe ab. Namen, Geburtsdaten und Fallnummern verlassen das Haus nicht.</p>
-<ul>
-<li>Pseudonymisierung nach DICOM PS3.15 Anhang E, Pixeldaten unverändert</li>
-<li>Ein Pseudonym je Patient und Projekt, Zeitabstände bleiben exakt</li>
-<li>Prüfsumme je Datei, abgebrochene Läufe setzen wieder auf</li>
-</ul>
-<p class="technik">DICOM C-FIND / C-MOVE · Windows-Programm</p>
-</article>
-<article id="flow2invoice" class="weiteres" aria-labelledby="flow2invoice-titel">
+<h3><span>Flow</span><span class="zwei">2</span><span>Research</span></h3>
+<p>Holt die Bilddaten einer Studie aus dem PACS, pseudonymisiert sie und legt sie auf einer Netzfreigabe ab.</p>
+<span class="mehr">Zur Produktseite</span>
+</a>
+<a class="weiteres teaser" href="flow2invoice.html">
 <div class="eyebrow">Handwerk und Handel</div>
-<h3 id="flow2invoice-titel"><span>Flow</span><span class="zwei">2</span><span>Invoice</span></h3>
-<p>Auftragsbearbeitung für kleine Betriebe: Angebot, Auftragsbestätigung, Lieferschein und Rechnung, jeweils mit einem Klick in den nächsten Beleg überführt. Die Arbeitsplätze arbeiten im Browser.</p>
-<ul>
-<li>E-Rechnung als XRechnung oder ZUGFeRD, Belege nach DIN 5008</li>
-<li>Offene Posten, Mahnwesen und DATEV-Export</li>
-<li>Übernahme von Kunden, Artikeln und Altbelegen aus Sage 50</li>
-</ul>
-<p class="technik">Server auf einem Mac im Büro · tägliche Datensicherung</p>
-</article>
+<h3><span>Flow</span><span class="zwei">2</span><span>Invoice</span></h3>
+<p>Angebot, Auftragsbestätigung, Lieferschein und Rechnung für kleine Betriebe, mit E-Rechnung und DATEV-Export.</p>
+<span class="mehr">Zur Produktseite</span>
+</a>
 </div>
 </section>
 
@@ -107,6 +98,9 @@
 document.querySelectorAll('[data-impressum]').forEach(function (k) {
   k.addEventListener('click', function () { document.getElementById('impressum').showModal(); });
 });
+// Alte Links auf die frühere Einzelseite (#flow2research, #flow2invoice) führen auf die neuen Produktseiten.
+var umzug = { '#flow2research': 'flow2research.html', '#flow2invoice': 'flow2invoice.html' };
+if (umzug[location.hash]) { location.replace(umzug[location.hash]); }
 if (location.hash === '#impressum') { document.getElementById('impressum').showModal(); }
 </script>
 <script src="illustrationen/illustrationen.js" defer></script>
